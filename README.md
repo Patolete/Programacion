@@ -1,2 +1,2 @@
 # Info de Programacion
-Repositorio con todos los machetes e informacion sobre programacios sacados del canal de soydalto
+Repositorio con toda la informacion y trabajos de programacion que hice o consegui
