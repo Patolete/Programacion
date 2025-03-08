@@ -1,2 +1,2 @@
-# repo-prueba
-Repositorio de prueba (primero en github)
+# Info de Programacion
+Repositorio con todos los machetes e informacion sobre programacios sacados del canal de soydalto
