@@ -1,0 +1,40 @@
+-Datos
+El "Value" en un "imput text" es lo que trae escrito por defecto 
+Para comentar todo lo que quieras comentar tiene que estar encerrado entre /* */
+
+-Seleccionar archivo de css en html:
+<link rel="stylesheet" type="text/css" href="(ubicacion del Archivo .CSS)">
+
+-Selectores:
+Universal: "*" Selecciona todos los elementos. Ej:*{(enter)color: (Algun color en hexaDesimall);(Enter)}
+De tipo: "(Un tipo de etiqueta)" selecciona nda mas las etiquetas de ese tipo
+Clases: ".(Nombre de la clase)" se requiere agregarle el atributo "class=(nombre de la clase)" a los objetos que quieras que esten en esa clase
+ID: "#(Nombre de la ID)" se requiere agregar elatributo "id=(Nombre del id)"(NO REPETIR ID EN DISTINTOS ELEMENTOS)
+Por atributos: "[(Atributo del elemento)="(Valor del atributo del elemento)"]"
+Descendiente: "Elemento "principal"/"Más grande" Elemento "Más chico"/"Secundario"..." (Se puede usar una clase como contenedor princicipal)
+Pseudo clases: "Elemento(Puede ser muy especifico, ej:Descendiente):Evento" (Solo ocurre cuando pasa ese evento)
+
+-Especificidad:
+Si se selecciona dos veces el mismo elemento se utiliza la "gerarquia cascada" (Toma en cuenta la ultima seleccion)
+Segun la gerarquia es su importancia: -!Important: "(Cualquier selector) {(Enter) (Atributo):(Valor) !important (Enter)}"
+						  -Estilos en linea: Se agregar el atributo style="(Atributo):(Valor)" al elemento
+						  -ID
+						  -Clases, Pseudo Clases y Atributos
+						  -Elementos y Pseudo Elementos
+-Metodología BEM: Sirve para poder saber que elemento estas seleccionando utilisando un sistema en cascada de clses
+en el caso en el que hubiese muchos "div" con clase "form" la clase del "imput" seria "(clase del div)__imput"
+y si hubiese muchos "imput" con esa clase y queres seleccionar uno solo la clase de ese "imput" seria
+"(clase del div)__"imput"--"propiedad ej:active"/(first/second...(dependiendo la posicion))child"
+para agregar otro elemento mas chico se pone un "-" y el elemento o sub-elemento.
+
+-Unidades: "font-size: (numero del tamaño)"px(pixeles), cm, mm o pt(puntos)"" <-- Medida fija
+"font-size: (numero del tamaño)"em(depende el navegador pero normalmente son 16px o va a se el valor que le demos a la caja contenedora)"" <-- Medida Relativa (se adapta a la medida del dispositivo)
+"width: (número del tamaño que ocupara a lo ancho de la pantalla)"vw(ViewportWidth)";"<-- Medida Relativa (se adapta a la medida del dispositivo)
+"height: (número del tamaño que ocupara a lo largo de la pantalla)"vh(ViewportHeight)";"<-- Medida Relativa (se adapta a la medida del dispositivo)
+
+-Propiedades de texto: font-size: Tamaño del texto. "font-size: (numero del tamaño)"px(pixeles), cm, mm o pt(puntos)"" o sus variantes en medidas relativas;
+font-family: (tipografia);
+line-height:(número); La altura de lo que ocupa (no se agranda la letra) la letra: 1 = 1 letra
+font-weight: (número 100+); Cuan ancha es la tipo grafia
+
+-Normilize: Borrar todo lo que trae el navegador por defecto. Busca normalize.css en google lo descargas guardar como lo guardas en la carpeta de la pagina y agregalo en un nuevo "link rel="stylesheet" type="text/css" href="normilize.css""

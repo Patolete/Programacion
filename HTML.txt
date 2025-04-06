@@ -1,0 +1,34 @@
+<>
+salir de carpeta ../;entrar a carpeta carpeta/(nombre del archivo o carpeta)
+<!DOCTYPE html>
+<html></html>
+<head></head>
+<title></title>
+<body></body>
+<br>Baja a la siguiente linea
+<h(número)>1=Titulo(Solo una vez)-2=Subtitulos(Varias pero no demasiadas al igual que el 3
+)-4=articulos(ilimitadas al igual que el 5 y el 6)-Pd:entre numeros solo cambia el tamaño</h(número)>
+<p>parrafo</p>
+<b>negrita</b>
+<i>italica</i>
+<strike>tachada</strike>
+<small>chiquita</small>
+<a href(enlace(para pagina del mismo servidor poner la ubicacion para externa el enlace(con https://Facebook.com(ejemplo))));target="_BLANK"abre la pagina en otra pestaña></a>
+<img src="local:(ruta del archivo);para externa:(copiaar ruta en codigo de google)" (width(ancho)="(número)px/height(alto)="(número)px)esto no permite modificarla en css alt="Nombre de la img en caso de que no aparesca" title="Titulo de la img">
+<video src="(enlace del video o video local)" controls>-</video>
+<audio src="(enlace del audio o audio local)" controls>-<audio>
+<ul>(lista desordenada)<li>(elemento)</li></ul>
+<ol>(lista enumerada)<li>(elemento)</li></ol>
+<div>separar y agrupar</div>
+<form method(metodo de enviado)="post"><textarea readonly=""(no es necesario)></textarea>/<input type="password/text/number/email/color/range min="n°" max="n°"/date(fecha)/time/botton value="Valor"/subtime(envia los datos)" requiered(Requerido)=""/name=""></form>
+<div>divisor parecido a un parrafo</div>
+<meta(va en head) charset="utf-8"(codificacion(la cambiamos)) name="keywords"/"description"/"author"/"copyright"/"robots" content"huevo, harina y leche"/"Insertar descripsion"/"Insertar autor"/"Insertar marca registrada"/"index/no index">(leer y cambiar meta datos)
+<header>Encabezado</header>
+<nav>Navegar</nav>
+<article><section></section></article>(Solo es para escribiir bien semanticamente)
+<aside>(Secundario/Recomendados/Otros Articulos)</aside>
+<footer>Pie de pagina</footer>
+<table border="1px"(Borde)><tr>Filas<td>Cada fila</td></tr></table>
+<center>Centra todo lo que este adentro(Los elementos de la tabla no excepto que lo pongamos en el td)</center>
+id="Inserte palabra"(Identificacion de esa etiqueta)(se usa <a href="Palbra insertada">Click aqui para ir a...</a> t lleva hasta la etiqueta con ese id)(atributo para cualquier etiqueta)
+<link rel="icon" href="Archivo(Solo formato .ico)">

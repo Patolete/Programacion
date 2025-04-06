@@ -1,0 +1,142 @@
+Todos los lugares donde este local/global/system(la escala de importancia siempre es 1er: local 2do: global 3er: system) se pueden reemplazar por alguno de las otras palabras como en el siguiente ejemplo
+
+Name
+git config --local user.name "Nombre que deseas asignar a el repositorio en el que te encontras"
+git config --global user.name "Nombre que deseas asignar a todos los repositorios de este usuario"
+git config --System user.name "Nombre que deseas asignar a todos los usuarios de la maquina en todos los repositorios"
+
+Email
+git config --local user.email "mail que deseas asignar a el repositorio en el que te encontras"
+
+List
+git config --list(Todas las configuraciones realizadas)
+git config --local --list(Todas las configuraciones realizadas a nivel local)
+
+clear(limpiar pantalla)
+
+git config --global core.editor "code --wait"(editamos el editor que va a utilizar GIT a nivel global en este caso le asignamos vs code, ya que la palabra clave de vs code es "code" y a su vez con el "--wait" hace que los cambios se realicen/guarden luego de cerrar el editor)
+
+git config color-ui true(le agrega colores a la ui de git)
+
+git config --global core.autocrlf true(Windows)/input(Linux y Mac) (en Windows retrocede al comienzo y baja la barra de escritura con un \r\n(esto no se ve) y en Linux y mac solamente la baja con un \n(esto no se ve)) (Básicamente es una solución a problemas de compatibilidad)
+
+git config --global core.abbrev numero al que queres que te acorte el id de los commits en el git log --oneline
+
+cd d:(acceder al directorio escrito luego de cd)
+cd ../(Volver una carpeta atras)
+mkdir repo(mkdir = Make Directorio y el nombre que queres asignarle a dicho directorio)
+redir repo(rmdir = Remove Directorio y el nombre del directorio que queres eliminar)
+git init(inicializa git(asigna el directorio en el que estas como un repositorio))
+ls(enlista los archivos en el directorio)
+pwd(te dice en que ruta estas)
+ls -a(ver archivos ocultos)
+cd ..(Volver una carpeta atrás)
+git add .(añadir todos los archivos del directorio)
+git add "Nombre de archivo por añadir" "Nombre de archivo por añadir"...(añadir todos los archivos del directorio)
+git status(ver el estado de tu directorio de trabajo y el área de preparacion)
+git status -s(ver el estado de tu directorio de trabajo y el área de preparacion simplificado)
+git commit -m "mensaje que deseas enviar con el commit al repositorio"
+git commit(abre el editor de código para escribir el mensaje)
+git commit -a(se saltea el área de preparación y los envía directamente al repositorio)
+
+Remover Archivo
+rm nombre del archivo a remover
+git add nombre del archivo a remover(estamos añadiendo la eliminación de dicho archivo a la zona de preparacion)
+y después hacemos un commit
+
+git restore nombre del archivo a restaurar(solo se puede restaurar si esta en el área de preparación o antes)
+git checkout nombre del archivo(restaura la ultima versión de dicho archivo que esta guardada en el repositorio(solo fuera del área de preparación))
+git reset --hard(es lo mismo pero lo saca del área de preparación y lo restaura, no utilizar indebidamente este comando, es mala practica)
+
+Cambiar nombre de archivo
+git mv nombre original del archivo   nuevo nombre del archivo
+hacer un commit
+
+git show nombre del archivo que queres abrir
+git diff --staged(muestra los cambios realizados entre el área de preparación y el repositorio)
+git log(identifica los últimos commits)
+git log --oneline(identifica los últimos commits simplificado)
+git config --global core.abbrev numero de caracteres en los que queremos que aparezca abreviados los identificadores de commits
+git diff id de commit   id del segundo commit
+git diff --name-only id de commit   id del segundo commit(muestra solamente los nombres de los archivos que cambiaron)
+git diff --word-diff id de commit   id del segundo commit(muestra solamente las palabras de los archivos que cambiaron)
+git commit --amend(Modificar el ultimo commit)
+
+Añadir archivos al commit a la vez que modificamos archivos del commit:
+hacemos git add al archivo por agregar, modificamos el archivo a modificar, lo subimos al área de preparación y ahi le hacemos un git commit --amend
+
+git rabase -i head~numero de commit que queres retroceder(cuando aparezcan los últimos (numero escrito) commits, seleccionar el que queres y cambiar "pick" por "edit")
+git rebase --continue(luego del rebase -i... para no perder los commits posteriores al seleccionado)
+git reset --soft id del commit al que queremos retroceder(los archivos de los commits adelantados al que retrocedimos vuelven al área de stagin)
+git reset --soft head~numero de commits que queremos retroceder(los archivos de los commits adelantados al que retrocedimos vuelven al área de stagin)
+git reset --mixed id de commit al que deseamos regresar(se borraran los commits posteriores a este, se limpiara el área de stagin, se volverá a dicho commit y se dejara intacta el área de trabajo)
+git reset --hard id de commit al que deseamos regresar(se borraran los commits posteriores a este, se limpiara el área de stagin, se volverá a dicho commit y se reescribirán los archivos de nuestra área de trabajo con los archivos del commit)(Tener todos los archivos guardados a la hora de usarlo para que no salte un error)
+
+git branch(muestra las ramas creadas  y en que rama estamos)
+git branch nombre de la nueva rama(palabras separadas por guiones medios)
+git checkout nombre de la rama a la que queremos cambiar
+git switch nombre de la rama a la que queremos cambiar(Esta es la forma correcta)
+git checkout -b nombre de la rama a la que queremos crear y cambiar
+git switch -c nombre de la rama a la que queremos crear y cambiar(Esta es la forma correcta)
+git branch -d nombre de la rama que queremos eliminar(no debes estar en la rama que borres)
+git branch -m nombre de la rama a modificar   nuevo nombre de la rama
+git branch -m nuevo nombre de la rama actual
+
+Unificar ramas
+git switch nobre de la rama a la que vamos a traer los cambios
+git merge nombre de la rama con dichos cambios
+git reset --hard id del ultimo commit(deshacer una fucion de ramas)
+
+git log --oneline --all(identifica los últimos commits de todas las ramas)
+
+Merge Conflicts
+se abre el editor de código solo y resolvemos el conflicto, lo commiteamos desde el editor de cogido o usamos:
+git merge --continue
+
+git ls-tree -r --name-only id del commit del que queremos ver los archivos que contiene o podes poner head si queres ver el contenido del ultimo commit
+
+.gitignore:
+crear archivo .gitignore, poner nombres de los archivos a ignorar o *.tipo de archivo del cual queremos ignorar todos los archivos
+!nombre del archivo que no queres que ignore en caso de que se incluya en los archivos del comando anterior pero no queres que lo ignoren
+nombre de la carpeta con archivos a ser ignorados/
+*carácter o palabra.tipo de archivo del cual queremos ignorar todos los archivos(para igorar todos los archivos de ese tipo de archivo que a su vez terminen con ese carácter o palabra)
+!nombre de la carpeta con archivos a ser ignorados/nombre del archivo que se encuentra en la carpeta que no queres que ignore
+
+Crear un .gitignore_global:
+creamos dicho archivo en una carpeta cualquiera y utilizamos el comando: git config --global core.excludesfile ruta del archivo .gitignore_global
+
+git log --oneline --graph --all --pretty=format:"%C(auto)%h%d %s %C(black)%C(bold)%cr" (git log oneline pero más lindo)
+
+Alias	
+git config --global alias.nombre que va a llevar el comando"comando"
+EJ:git config --global alias.log-mejorado "log --oneline --graph --all --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
+git log mejorado
+git reflog(ver commits peo incluye los borrados)
+git reset --hard id del commit borrado conseguido con git reflog
+
+Borrar una rama:
+To delete a branch in Git, you can use the command git branch -d or git push --delete. You can also delete branches using the Git menu in Visual Studio. 
+Local branches 
+Open a command prompt or Git BASH in the root of your repository
+Switch to a different branch
+Run git branch -d <branch_name>
+Verify the branch is deleted by running git branch -a
+Remote branches 
+Run git push origin --delete <branch_name>
+Or, use the shorter command git push origin :branch_name
+Deleting in Visual Studio 
+Open Team Explorer and go to the Branches view
+Right-click the branch you want to delete
+Select Delete
+If you have unpublished changes, confirm you want to delete the branch
+Notes
+You can't delete a branch you're currently working on 
+If the branch has unmerged changes, you can force delete it using git branch -D branch_name 
+If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch
+
+code .(abre vscode en la carpeta en la que estas)
+git clone link de https de un repositorio de github a clonar
+
+git push origin (volver a subir los archivos al repositorio remoto)
+git pull (actaliza los cambios en nuestro repositorrio con los cambios del repositorio remoto)
+git pull origin master (si no anda el git pull solo)(actaliza los cambios en nuestro repositorrio con los cambios del repositorio remoto)
