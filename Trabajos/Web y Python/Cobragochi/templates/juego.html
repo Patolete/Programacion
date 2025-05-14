@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobragochi</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body style="background-color: black;">
+
+  <div id="pantalla-derrota" class="pantalla-reintentar" style="display: none;">
+    <p class="derrota">Derrota</p>
+    <a href="{{ url_for('reiniciar') }}">
+      <button>Reintentar</button>
+  </a>
+  </div>
+  <div id="pantalla-victoria" class="pantalla-reintentar" style="display: none;">
+    <p class="victoria">Victoria</p>
+    <a href="{{ url_for('reiniciar') }}">
+      <button>Reiniciar</button>
+    </a>
+  </div>
+
+
+  </div>
+  <div class="container" id="main-content">
+    <div class="buttons-container">
+      <a href="{{ url_for('comer') }}">
+        <button id="btn-comer">🐖Comer🐖</button>
+      </a>
+      <a href="{{ url_for('ducharse') }}">
+        <button>🧼Ducharse🧼</button>
+      </a>
+      <a href="{{ url_for('stremear') }}">
+        <button>🗣️💻Stremear💻🗣️</button>
+      </a>
+    </div>
+  
+    <div class="tamagochi-container">
+      {% if hambre > 70 %}
+      
+      {% else %}
+      <img src="static\imgs\cobra.jpg" class="img-neon">
+      {% endif %}
+    </div>
+  
+    <div class="stats-container">
+      <div class="badges">
+        <p class = "white">Hambre: {{hambre}} <br></p>
+        <p class = "white" id="suciedad">Suciedad: {{suciedad}}</p> <br>
+        <p class = "white">Plata: {{plata}} <br>  </p>
+        
+        <div class="seguidores-container" id="seguidores-container" style="display: none;"><p class="yellow" id="seguidores">Seguidores: {{seguidores}}</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var hambre = parseInt("{{ hambre }}");
+    var suciedad = parseInt("{{ suciedad }}")
+    var seguidores = parseInt("{{ seguidores }}")
+    var dificultad = parseInt("{{ dificultad }}")
+
+    console.log("Hambre actual:", hambre);
+
+    function mostrarPanLos(){
+      var pantallaLose = document.getElementById("pantalla-derrota")
+      var ocultarMain = document.getElementById("main-content")
+      pantallaLose.style.display ="flex"
+      ocultarMain.style.display="none"
+    }
+
+    function mostrarPanVic(){
+      var ocultarMain = document.getElementById("main-content")
+      var pantallaVic = document.getElementById("pantalla-victoria")
+      pantallaVic.style.display="flex"
+      ocultarMain.style.display="none"
+    }
+
+    function mostrarSeguidores(){
+      var statSeguidores = document.getElementById("seguidores-container")
+      statSeguidores.style.display="flex"
+    }
+
+    if ((hambre >= 100) || (suciedad >= 100)){
+      mostrarPanLos();
+    }
+    
+    if(seguidores >= 500000){
+      mostrarPanVic()
+    }
+
+    if(dificultad == 1 || dificultad == 2){
+      mostrarSeguidores()
+    }
+    
+
+  </script>
+</body>
+
+</html>
