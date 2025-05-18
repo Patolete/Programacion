@@ -1,0 +1,130 @@
+math.h -> biblioteca{
+pow(numero a potenciar por cuanto elevarlo)
+sqrt(numero a saber la raiz cuadrada)
+}
+&& -> and
+|| -> or
+switch(variable de con el numero de case){
+case 1/'Letra': ordenes;break;
+case 2/'Letra': ordenes;break;
+.
+.
+.
+}
+else if-> elif
+% -> resto de la divicion
+/ -> resultado de la divicion
+do{
+ordenes(se realizan una vez y el resto de veces se repiten solo si se cumple el while)
+}while();
+ejemplo de declaracion de un arreglo -> int numeros[5] = {1,2,3,4,5};
+Declarando y guardando la matriz
+	int numeros[3][3];
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			cout<<"Digite un numero ["<<i<<"]["<<j<<"]: "<<endl; cin>>numeros[i][j];
+		}
+	}
+
+#include <conio.h>//Libreria que uso para que no se cierre el programa solo usando el getch();
+#include <string.h>//Libreria para cadenas de texto{
+strlen=longitud de la str
+strcpy(str recibidora, str donadora)=copiar elementos de una str a otra
+strrev=dar bvuelta una str
+strlwr=transformar a minusculas toda la str
+strupr=transformar a mayusculas toda la str
+strcat(str recibidora, str donadora)=concatena una cadena a otra, NO copia
+strcmp(str a comparar, str a comparar)=poner siguiente al parentesis el operador a utiliza y luego un cero. Ejemplo:strcmp(palabra,palabra2)==0
+atoi(str a usar)=transforma la str a num enteros
+atof(str a usar)=transforma la str a num reales}
+
+Ejemplo de estructura: struct alumno{
+	char nombre[20];
+	int edad;
+	float promedio;
+}a[3];
+ejemplo de como llamarla: a[cualquier parametro que sea de valor entero].promedio
+como anidar una estructura a otra(escribir adentro del aotra estructura): struct promedio prom;
+ejemplo de como llamar un elemento de la estructura anidada: alumno[i].prom.nota2
+
+//Prototipo de Funcion
+void mult(float x,float y);
+void pedirDatos();
+Es necesario antes de la funcion main escribir el prototipo de las funciones que se declararan al final del programa afuera de la funcion main
+Ejemplo de declaracion de funcion en la cual no se retorna nada lo cual es posible: 
+void mult(float x,float y){
+	float multiplicacion = x * y;
+	cout<<"La multiplicacion es: "<<multiplicacion<<endl;
+}
+}
+forma de declarar una plantilla de funcion: template <class MULTI(Nombre del tipo de dato)> este tipo de dato lo puedes usar en variables, arreglos, str, etc. dentro de la funcion
+si al tipo de dato de una de las de las variables o arreglos que utiliza la funcion l ponemos "&" esta podra cambiar el valor de la variable(o lo que sea que utilises). Ejemplo: suma(int&,int&)
+template <class T> crear una clase(se debe usar antes del prototipo de funcion y la declaracion de la funcion en la que la vas a utilizar)
+(tipo de dato)& es para poder usar paso de parámetros por Referencia y no tan solo el valor de las variables, preo gracias a esto podemos pasarle la direccion de memoria donde esta el valor que necesitamos
+funcion recursiva: se autollama hasta llegar a un valor el cual si puede resolver, la funcion se auto llama en el caso general hasta que cumple con los parametros del caso base.
+Ej:int fibonacci(int n){
+	if(n<2){//Caso base
+		return n;
+	}
+	else{//Caso general
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
+PUNTEROS: Son variables que guardan la direccion de otras variables, matrices, arreglos,etc. Se declaran asi: *dir_numero
+como darle el valor de la variable: dir_numero = &numero(en los arreglos va el arreglo solo y la variable de puntero guarda solo la primera posicion del arreglo y con una suma iterativa se puede recorer todo el arreglo);
+Arreglos Dinamicos: son arreglos los cuales tienen la cantidad de elementos que el arreglo necesita
+¿Como se declaran? (arreglo) = new int[(Variable con el valor que seran la cantidad de elementos tendra el arreglo)]
+Se deben borrar los elementos asignnados a este arreglo: delete[] (Arreglo)
+¿Como recorer un arreglo con punteros iterativamente? *(elemento+i)
+Como asignar el tipo de dato puntero en una funcion: ((tipo de dato) *)
+Puntero Matriz: Declaracion: **(Nombre de la matriz), asignar elementos a la matriz:
+puntero_matriz1 = new int*[nFilas]; //Reservar memoria para las filas
+	for(int i=0;i<nFilas;i++){
+		puntero_matriz1[i] = new int[nCol]; //Reservar memoria para las columnas
+	}
+Borrar los elementos asignados a la matriz:
+for(int i=0;i<nFilas;i++){
+		delete[] puntero_matriz2[i];
+	}
+	delete[] puntero_matriz2;
+Recorer matriz iterativamente: *(*(puntero_matriz1+i)+j)
+Ejemplo de punteros en estructuras:
+struct Alumno{
+	char nombre[30];
+	int edad;
+	float promedio;
+}alumno[3], *puntero_alumno = alumno;
+void pedirDatos();
+void comprobarMejorPromedio(Alumno *);
+int main(){
+	pedirDatos();	
+	comprobarMejorPromedio(puntero_alumno);
+	getch();
+	return 0;
+}
+void pedirDatos(){
+	for(int i=0;i<3;i++){
+		fflush(stdin); //Limpiar buffer para poder seguir digitando datos
+		cout<<"Digite su nombre: ";
+		cin.getline((puntero_alumno+i)->nombre,30,'\n');
+		cout<<"Digite su edad: ";
+		cin>>(puntero_alumno+i)->edad;
+		cout<<"Digite su promedio: ";
+		cin>>(puntero_alumno+i)->promedio;
+		cout<<"\n";
+	}
+}
+void comprobarMejorPromedio(Alumno *puntero_alumno){
+	float mayor = 0.0;
+	int pos=0;
+	for(int i=0;i<3;i++){
+		if((puntero_alumno+i)->promedio > mayor){
+			mayor = (puntero_alumno+i)->promedio;//sacamos el mayor promedio
+			pos = i;// guardamos la posicion del mayor promedio
+		}
+	}
+	//Imprimimos los datos del alumno con el mejor promedio	
+	cout<<"\nAlumno con el mejor promedio: "<<endl;
+	cout<<"Nombre: "<<(puntero_alumno+pos)->nombre<<endl;
+	cout<<"Edad: "<<(puntero_alumno+pos)->edad<<endl;
+	cout<<"Promedio: "<<(puntero_alumno+pos)->promedio<<endl;	
+}
