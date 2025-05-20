@@ -140,4 +140,5 @@ git clone link de https de un repositorio de github a clonar
 git push origin (volver a subir los archivos al repositorio remoto)
 git pull (actaliza los cambios en nuestro repositorrio con los cambios del repositorio remoto)
 git pull origin master (si no anda el git pull solo)(actaliza los cambios en nuestro repositorrio con los cambios del repositorio remoto)
+git pull -u origin master (para poder usar el git pull solo siempre)
 git config --global --add safe.directory directorio al que no te deja acceder
