@@ -76,6 +76,7 @@ git branch(muestra las ramas creadas  y en que rama estamos)
 git branch nombre de la nueva rama(palabras separadas por guiones medios)
 git checkout nombre de la rama a la que queremos cambiar
 git switch nombre de la rama a la que queremos cambiar(Esta es la forma correcta)
+git switch --detach nombre de la rama a la que queremos cambiar(Esta es la forma correcta)
 git checkout -b nombre de la rama a la que queremos crear y cambiar
 git switch -c nombre de la rama a la que queremos crear y cambiar(Esta es la forma correcta)
 git branch -d nombre de la rama que queremos eliminar(no debes estar en la rama que borres)
@@ -142,3 +143,30 @@ git pull (actaliza los cambios en nuestro repositorrio con los cambios del repos
 git pull origin master (si no anda el git pull solo)(actaliza los cambios en nuestro repositorrio con los cambios del repositorio remoto)
 git pull -u origin master (para poder usar el git pull solo siempre)
 git config --global --add safe.directory directorio al que no te deja acceder
+git fetch (git pull pero mas controlado y menos peligroso)
+
+Migrar un repositorio local a un repo remoto:
+git remote add origin link del repo remoto nuevo previamente creado
+git branch -M main
+git push -u origin main(se pone una vez y despues podes solo usar git push(porque configura que el push siempre vaya a origin de main))
+
+Forks: Clonar un repositorio que no es nuestro en otro repositorio remoto nuevo en nuesta cuenta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
